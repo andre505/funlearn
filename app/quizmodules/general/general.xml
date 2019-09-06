@@ -1,0 +1,49 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android
+        because ActionItems are shown on the right side of the ActionBar
+        -->
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the
+        NavigationButton as a side-drawer button in iOS is not possible,
+        because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://navigation/menu"
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="actionBarLabel" text="General Knowledge"></Label>
+    </ActionBar>
+
+    <GridLayout rows="10, auto, auto, auto, auto">
+
+        <StackLayout class="qstack" row="1">
+            <Label class="questionnumber" textWrap="true" text="Question 1/5" height="auto"/>
+        </StackLayout>
+
+        <StackLayout class="qstack2" row="2">
+            <Label class="question" textWrap="true" text="How many months do we have in a year?"/>       
+
+        </StackLayout>
+
+        <StackLayout class="optionsstack" row="3" orientation="vertical">
+            <Button class="btn btn-primary btn-rounded-lg mybtn2" text="7 Months"/>
+            <Button class="btn btn-primary btn-rounded-lg mybtn2" text="8 Months"/>
+            <Button class="btn btn-primary btn-rounded-lg mybtn2" text="12 Months"/>
+            <Button class="btn btn-primary btn-rounded-lg mybtn2" text="11 Months"/>
+        </StackLayout> 
+
+         <!--<StackLayout class="qstack" row="4">
+           <GridLayout rows="auto" columns="auto">
+                        <Button id="closebtn" text="Close" class="btn, btn-green, mybtn" tap ="onCloseTap"></Button>
+                    </GridLayout>                       
+        </StackLayout>  -->
+    </GridLayout>
+</Page>

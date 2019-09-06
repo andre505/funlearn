@@ -1,0 +1,31 @@
+<Page loaded="pageLoaded" class="page" actionBarHidden="true" xmlns="http://www.nativescript.org/tns.xsd">
+    <FlexboxLayout class="page">
+        <StackLayout class="form">
+            <Image class="logo logo.resize" src="~/images/funlearn3.jpg" />
+            
+            
+            <Label class="header" text="A few personal details" />
+            <GridLayout rows="auto, auto, auto">
+                <StackLayout row="0" class="input-field">
+                    <TextField class="input" text="" hint="First Name"
+                        autocorrect="false"
+                        autocapitalizationType="none" returnKeyType="next" />
+                    <Label class="hr-light" />
+                </StackLayout>
+
+                <StackLayout row="1" class="input-field">
+                    <TextField id="lastname" class="input" text=""
+                        hint="Surname"/>
+                    <Label class="hr-light" />
+                </StackLayout>
+                <StackLayout row="2" class="input-field">
+                    <Label id="lastname" class="input" text="Date of Birth"/>
+                </StackLayout>
+                <DatePicker class="dp" row="2" loaded="onDatePickerLoaded" date="{{ date }}" minDate="{{ minDate }}" maxDate="{{ maxDate }}"></DatePicker>
+            </GridLayout>
+
+            <Button text="Continue" tap="oncontinueTap" class="my-button"/>
+
+        </StackLayout>
+    </FlexboxLayout>
+</Page>

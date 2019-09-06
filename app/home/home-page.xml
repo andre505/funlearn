@@ -1,0 +1,50 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android
+        because ActionItems are shown on the right side of the ActionBar
+        -->
+        <NavigationButton class="navicon" ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the
+        NavigationButton as a side-drawer button in iOS is not possible,
+        because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="actionBarLabel" text="Quiz Topics"></Label>
+    </ActionBar>
+
+    <GridLayout rows="*" xmlns:lv="nativescript-ui-listview" height="100%">
+		<lv:RadListView id="list-view" row="0" items="{{ quizlist }}" itemTap="onItemTap" marginRight="-2">
+			<lv:RadListView.listViewLayout>
+				<lv:ListViewGridLayout scrollDirection="Vertical" itemHeight="200" spanCount="1" />
+			</lv:RadListView.listViewLayout>
+			<lv:RadListView.itemTemplate>
+				<GridLayout rows="*" backgroundColor="White">
+					<GridLayout rows="*" columns="*" margin="0">
+						<ios>
+							<Image src="{{ imageSrc }}" stretch="aspectFill" />
+						</ios>
+						<android>
+							<Image horizontalAlignment="stretch" height="180" stretch="aspectFill" src="{{ imageSrc }}" />
+						</android>
+						<GridLayout verticalAlignment="bottom">
+							<StackLayout paddingTop="8" paddingBottom="8" paddingLeft="16" paddingRight="16">
+								<Label text="{{ quizmodule }}" class="quizmodule" />
+								<Label text="{{ description }}" class="quizdescription" />
+							</StackLayout>
+						</GridLayout>
+					</GridLayout>
+				</GridLayout>
+			</lv:RadListView.itemTemplate>
+		</lv:RadListView>
+	</GridLayout>
+</Page>
